@@ -1,5 +1,7 @@
 # Detection Replay
 
+[![Validation](https://github.com/AhmedAlAbdullah0/detection-replay/actions/workflows/validation.yml/badge.svg)](https://github.com/AhmedAlAbdullah0/detection-replay/actions/workflows/validation.yml)
+
 **Recover late-arriving events. Emit one alert per event.**
 
 A Python and SQLite project examining two practical failure modes in scheduled
@@ -96,6 +98,14 @@ keeps independent detections separate.
 
 The images show the query and results view; the source and machine-readable
 outputs make those results independently reproducible.
+
+## Continuous validation
+
+The [Validation workflow](https://github.com/AhmedAlAbdullah0/detection-replay/actions/workflows/validation.yml)
+runs all 12 behavioral tests and reproduces the replay on four configurations:
+Python 3.10 and 3.12 on Ubuntu 24.04 and Windows Server 2022.
+The [first matrix run](https://github.com/AhmedAlAbdullah0/detection-replay/actions/runs/45141961895)
+passed all four jobs for commit `e01c9834a4f7d9e3c4595568f6f73b14240ac1a8`.
 
 ## Engineering boundaries
 
