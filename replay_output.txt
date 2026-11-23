@@ -1,0 +1,14 @@
+Scheduled detection replay | Windows Security 4732
+Synthetic events / UTC / 5-minute schedule
+
+Late record    84234  event 21:03:20  indexed 21:07:42
+Index lag      262s   original window closed at 21:05:00
+Replay copy    84234  indexed again at 21:11:08
+
+Search strategy                Alerts   Duplicate   Late event
+--------------------------------------------------------------------
+5m fixed window                1        0           MISSED
+15m lookback                   6        4           21:10:00
+15m + alert dedup              2        0           21:10:00
+
+Dedup key: rule + host + channel + event record ID

@@ -1,0 +1,108 @@
+{
+  "rule": "local-admin-membership",
+  "schedule_utc": [
+    "21:05:00",
+    "21:10:00",
+    "21:15:00",
+    "21:20:00"
+  ],
+  "late_record_id": 84234,
+  "late_event_lag_seconds": 262,
+  "strategies": [
+    {
+      "strategy": "5m fixed window",
+      "lookback_seconds": 300,
+      "deduplicate": false,
+      "raw_hits_per_run": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "emitted": [
+        {
+          "run_utc": "21:05:00",
+          "record_id": 84217
+        }
+      ],
+      "alerts": 1,
+      "distinct_event_ids": [
+        84217
+      ],
+      "duplicate_alerts": 0,
+      "late_event_first_alert_utc": null
+    },
+    {
+      "strategy": "15m lookback",
+      "lookback_seconds": 900,
+      "deduplicate": false,
+      "raw_hits_per_run": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "emitted": [
+        {
+          "run_utc": "21:05:00",
+          "record_id": 84217
+        },
+        {
+          "run_utc": "21:10:00",
+          "record_id": 84217
+        },
+        {
+          "run_utc": "21:10:00",
+          "record_id": 84234
+        },
+        {
+          "run_utc": "21:15:00",
+          "record_id": 84217
+        },
+        {
+          "run_utc": "21:15:00",
+          "record_id": 84234
+        },
+        {
+          "run_utc": "21:15:00",
+          "record_id": 84234
+        }
+      ],
+      "alerts": 6,
+      "distinct_event_ids": [
+        84217,
+        84234
+      ],
+      "duplicate_alerts": 4,
+      "late_event_first_alert_utc": "21:10:00"
+    },
+    {
+      "strategy": "15m + alert dedup",
+      "lookback_seconds": 900,
+      "deduplicate": true,
+      "raw_hits_per_run": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "emitted": [
+        {
+          "run_utc": "21:05:00",
+          "record_id": 84217
+        },
+        {
+          "run_utc": "21:10:00",
+          "record_id": 84234
+        }
+      ],
+      "alerts": 2,
+      "distinct_event_ids": [
+        84217,
+        84234
+      ],
+      "duplicate_alerts": 0,
+      "late_event_first_alert_utc": "21:10:00"
+    }
+  ]
+}
